@@ -10,9 +10,9 @@ function Signup() {
     const navigate = useNavigate()
     const [error, setError] = useState("")
     const dispatch = useDispatch()
-    const { resigter, handleSubmit } = useForm()
+    const { register, handleSubmit } = useForm()
 
-    const create = async (data) {
+    const create = async (data) => {
         setError = ""
         try {
             const userData = await authService.createAccount(data)
@@ -51,7 +51,7 @@ function Signup() {
                         <Input
                             label="Full Name: "
                             placeholder="Enter your full name"
-                            {...resigter("name", {
+                            {...register("name", {
                                 required: true,
                             })} />
                         <Input
